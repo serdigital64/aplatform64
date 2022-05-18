@@ -1,0 +1,20 @@
+---
+- name: "DevOps / GitLab / Server / Usage example"
+  hosts: "localhost"
+  gather_facts: true
+
+  tasks:
+    - name: "Example: Install package"
+      vars:
+        dops_gitlab_server:
+          resolve_prereq: true
+          deploy: true
+          setup: true
+          control: true
+        dops_gitlab_server_firewall:
+          zone: "public"
+        dops_gitlab_server_server:
+          external_url: "gitlab.localdomain"
+      ansible.builtin.include_role:
+        name: "serdigital64.devops.dops_gitlab_server"
+...
